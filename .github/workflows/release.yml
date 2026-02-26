@@ -25,15 +25,16 @@ jobs:
           APP_NAME="MacLevel"
           SCHEME="MacLevel"
 
-          # 1. Archive
-          xcodebuild archive 
-            -project "${APP_NAME}.xcodeproj" 
-            -scheme "${SCHEME}" 
-            -configuration Release 
-            -archivePath "build/${APP_NAME}.xcarchive" 
-            CODE_SIGN_IDENTITY="" 
-            CODE_SIGNING_REQUIRED=NO 
-            CODE_SIGNING_ALLOWED=NO
+          # 1. Archive (Force bypass code signing)
+          xcodebuild archive \
+            -project "${APP_NAME}.xcodeproj" \
+            -scheme "${SCHEME}" \
+            -configuration Release \
+            -archivePath "build/${APP_NAME}.xcarchive" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            DEVELOPMENT_TEAM=""
 
           # 2. Extract .app
           mkdir -p "dist"
