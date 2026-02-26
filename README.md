@@ -4,6 +4,20 @@
 
 ![Screenshot](assets/screenshot.png)
 
+## 설치
+
+### Homebrew
+
+```bash
+brew tap ny0510/tap
+brew install --cask maclevel
+```
+
+### 직접 다운로드
+
+1. [릴리즈 페이지](https://github.com/ny0510/MacLevel/releases)에서 최신 버전을 다운로드하세요.
+2. 다운로드한 `.zip` 파일의 압축을 풀고, `MacLevel.app`을 응용 프로그램 폴더로 이동하세요.
+
 ## 테스트 환경
 
 - MacBook Pro 16" (2024, M4 Pro), macOS 26.3
