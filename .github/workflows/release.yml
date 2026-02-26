@@ -45,9 +45,6 @@ jobs:
           zip -r "../${APP_NAME}.zip" "${APP_NAME}.app"
           cd ..
 
-          # 4. Calculate SHA256 (Homebrew 업데이트용)
-          echo "SHA256=$(shasum -a 256 ${APP_NAME}.zip | awk '{print $1}')" >> $GITHUB_ENV
-
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
@@ -55,8 +52,5 @@ jobs:
           body: |
             ## MacLevel ${{ github.ref_name }}
 
-            ### Homebrew Cask Update Info
-            - **Version**: `${{ github.ref_name }}`
-            - **SHA256**: `${{ env.SHA256 }}`
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
